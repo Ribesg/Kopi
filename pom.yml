@@ -1,0 +1,31 @@
+modelEncoding: UTF-8
+modelVersion: 4.0.0
+packaging: jar
+
+groupId: fr.ribesg
+artifactId: kopi
+name: Kopi
+
+version: 0.0.1-SNAPSHOT
+
+properties:
+  project.build.sourceEncoding: UTF-8
+  kotlin.version: 1.0.0-beta-4589
+
+dependencies:
+- artifactId: kotlin-stdlib
+  groupId: org.jetbrains.kotlin
+  version: ${kotlin.version}
+
+build:
+  defaultGoal: clean package
+  sourceDirectory: ${project.basedir}/src/main/kotlin
+
+  plugins:
+  - groupId: org.jetbrains.kotlin
+    artifactId: kotlin-maven-plugin
+    version: ${kotlin.version}
+    executions:
+    - id: compile
+      phase: process-sources
+      goals: [compile]
